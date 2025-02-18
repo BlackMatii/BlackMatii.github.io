@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><3</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 1200px;
+            text-align: center;
+        }
+        .gifs {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .gif img {
+            max-width: 100%;
+            height: auto;
+            margin: 5px 0;
+        }
+        .text {
+            font-size: 32px;
+            font-weight: bold;
+            color: #de5d83;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 3;
+            padding: 10px;
+            border-radius: 10px;
+            transition: font-size 2s ease-in-out;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const leftGifs = ["kiss1.gif", "hug1.gif", "kiss2.gif"];
+            const rightGifs = ["hug2.gif", "kiss3.gif", "hug3.gif"];
+            
+            function swapGifs() {
+                leftGifs.unshift(leftGifs.pop());
+                rightGifs.unshift(rightGifs.pop());
+                
+                document.querySelectorAll(".gifs:first-child img").forEach((img, index) => {
+                    img.src = leftGifs[index];
+                });
+                
+                document.querySelectorAll(".gifs:last-child img").forEach((img, index) => {
+                    img.src = rightGifs[index];
+                });
+            }
+            
+            setInterval(swapGifs, 3000);
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="gifs">
+            <img src="kiss1.gif" alt="GIF 1">
+            <img src="hug1.gif" alt="GIF 2">
+            <img src="kiss2.gif" alt="GIF 3">
+        </div>
+        <div class="text">
+           <h1> DZIĘKI ŻE JESTEŚ, BARDZO CIĘ KOCHAM ♡ </h1>
+        </div>
+        <div class="gifs">
+            <img src="hug2.gif" alt="GIF 4">
+            <img src="kiss3.gif" alt="GIF 5">
+            <img src="hug3.gif" alt="GIF 6">
+        </div>
+    </div>
+</body>
+</html>

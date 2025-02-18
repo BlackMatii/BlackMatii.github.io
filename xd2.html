@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kwiatek</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f7c3d1;
+            position: relative;
+        }
+        .flower {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 150px;
+        }
+        .petal {
+            width: 80px;
+            height: 150px;
+            background-color: white;
+            position: absolute;
+            top: 20px;
+            left: 60px;
+            border-radius: 50% 50% 0 0;
+            transform-origin: bottom center;
+            cursor: pointer;
+        }
+        .petal:nth-child(1) { transform: rotate(0deg); }
+        .petal:nth-child(2) { transform: rotate(45deg); }
+        .petal:nth-child(3) { transform: rotate(90deg); }
+        .petal:nth-child(4) { transform: rotate(135deg); }
+        .petal:nth-child(5) { transform: rotate(180deg); }
+        .petal:nth-child(6) { transform: rotate(225deg); }
+        .petal:nth-child(7) { transform: rotate(270deg); }
+        .petal:nth-child(8) { transform: rotate(315deg); }
+        
+        .center {
+            width: 80px;
+            height: 80px;
+            background-color: yellow;
+            border-radius: 50%;
+            position: absolute;
+            top: 130px;
+            left: 60px;
+            z-index: 2;
+        }
+        .message {
+            font-size: 32px;
+            font-weight: bold;
+            color: #d81b60;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 3;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+        .center-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px !important;
+        }
+        .gif-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+    </style>
+    <script>
+        let count = 0;
+        function removePetal(event) {
+            event.target.style.display = 'none';
+            count++;
+            const message = document.getElementById('message');
+            message.innerText = count % 2 === 1 ? "nie kocha mnie" : "KOCHA MNIE!!!";
+            
+            if (count === 8) {
+                document.querySelector('.center').classList.add('hidden');
+                message.classList.add('center-message');
+                
+                setTimeout(() => {
+                    message.classList.add('hidden');
+                    document.getElementById('gif').style.display = 'block';
+                }, 3000);
+                
+                setTimeout(() => {
+                    window.location.href = 'xd3.html';
+                }, 6000);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="flower">
+        <div class="center"></div>
+        <div class="petal" onclick="removePetal(event)"></div>
+        <div class="petal" onclick="removePetal(event)"></div>
+        <div class="petal" onclick="removePetal(event)"></div>
+        <div class="petal" onclick="removePetal(event)"></div>
+        <div class="petal" onclick="removePetal(event)"></div>
+        <div class="petal" onclick="removePetal(event)"></div>
+        <div class="petal" onclick="removePetal(event)"></div>
+        <div class="petal" onclick="removePetal(event)"></div>
+    </div>
+    <div id="message" class="message"></div>
+    <div id="gif" class="gif-container">
+        <img src="hearts.gif" alt="Wynik" width="300" height="300">
+    </div>
+</body>
+</html>

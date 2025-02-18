@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hihi</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('serduszka.png') no-repeat center center/cover;
+        }
+        
+        .textbox {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #fff;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: rgba(249,117,148,255);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function checkInput(event) {
+            if (event.target.value === "Ja") {
+                window.location.href = "xd2.html";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="title"> <h3>Kto jest najlepszą dziewczyną na świecie?</h3></div>
+    <input type="text" class="textbox" placeholder="..." oninput="checkInput(event)">
+</body>
+</html>
